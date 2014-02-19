@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dhc:dhc xmlns:dhc="http://elite.polito.it/dogHomeConfiguration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://elite.polito.it/dogHomeConfiguration home_configuration.xsd ">
+	<dhc:buildingEnvironment>
+		<dhc:building id="KNX">
+			<dhc:flat class="Flat" id="BTicino_DemoBox">
+				<dhc:room class="StorageRoom" id="storageroom">
+					<dhc:ceiling class="Ceiling" id="ceiling" />
+					<dhc:floor class="Floor" id="floor" />
+					<dhc:wall class="Wall" id="wall" />
+				</dhc:room>
+			</dhc:flat>
+		</dhc:building>
+	</dhc:buildingEnvironment>
+	<dhc:controllables>
+		<dhc:device domoticSystem="BTICINO" id="Switch_b3_lobby" class="OnOffSwitch">
+            <dhc:description>A OnOffSwitch instance named Switch_b3_lobby</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:controls>SimpleLamp_lamp2_bath</dhc:controls>
+            <dhc:param value="11" name="physicalAddress"/>
+            <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="OffNotification_b3_lobby" class="OffNotification">
+                        <dhc:generatesCommand>OffCommand_lamp2_bath</dhc:generatesCommand>
+                        <dhc:param value="off" name="notificationName"/>
+                    </dhc:notification>
+                    <dhc:notification id="OnNotification_b3_lobby" class="OnNotification">
+                        <dhc:generatesCommand>OnCommand_lamp2_bath</dhc:generatesCommand>
+                        <dhc:param value="on" name="notificationName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_b3_lobby" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="SimpleLamp_lamp4_lobby" class="SimpleLamp">
+            <dhc:description>A SimpleLamp instance named SimpleLamp_lamp4_lobby</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="23" name="physicalAddress"/>
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OnCommand_lamp4_lobby" name="OnCommand_lamp4_lobby" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OffCommand_lamp4_lobby" name="OffCommand_lamp4_lobby" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="QueryFunctionality">
+                <dhc:commands>
+                    <dhc:command id="GetCommand_lamp4_lobby" name="GetCommand_lamp4_lobby" class="GetCommand">
+                        <dhc:param value="getState" name="realCommandName"/>
+                        <dhc:param value="State" name="returnType"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_lamp4_lobby" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="Switch_b12_bath" class="OnOffSwitch">
+            <dhc:description>A OnOffSwitch instance named Switch_b12_bath</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:controls>SimpleLamp_lamp8_bath</dhc:controls>
+            <dhc:param value="12" name="physicalAddress"/>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_b12_bath" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="OnNotification_b12_bath" class="OnNotification">
+                        <dhc:generatesCommand>OnCommand_lamp8_bath</dhc:generatesCommand>
+                        <dhc:param value="on" name="notificationName"/>
+                    </dhc:notification>
+                    <dhc:notification id="OffNotification_b12_bath" class="OffNotification">
+                        <dhc:generatesCommand>OffCommand_lamp8_bath</dhc:generatesCommand>
+                        <dhc:param value="off" name="notificationName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="ShutterActuator_sh1_living" class="ShutterActuator">
+            <dhc:description>A ShutterActuator instance named ShutterActuator_sh1_living</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="31" name="physicalAddress"/>
+            <dhc:controlFunctionality class="UpDownRestFunctionality">
+                <dhc:commands>
+                    <dhc:command id="UpCommand_sh1_living" name="UpCommand_sh1_living" class="UpCommand">
+                        <dhc:param value="up" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="DownCommand_sh1_living" name="DownCommand_sh1_living" class="DownCommand">
+                        <dhc:param value="down" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="RestCommand_sh1_living" name="RestCommand_sh1_living" class="RestCommand">
+                        <dhc:param value="rest" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_sh1_living" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="ShutterState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="rest" class="RestTripleStateValue"/>
+                    <dhc:statevalue name="raising" class="RaisingStateValue"/>
+                    <dhc:statevalue name="up" class="UpTripleStateValue"/>
+                    <dhc:statevalue name="down" class="DownTripleStateValue"/>
+                    <dhc:statevalue name="lowering" class="LoweringStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="SimpleLamp_lamp2_bath" class="SimpleLamp">
+            <dhc:description>A SimpleLamp instance named SimpleLamp_lamp2_bath</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="11" name="physicalAddress"/>
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OnCommand_lamp2_bath" name="OnCommand_lamp2_bath" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OffCommand_lamp2_bath" name="OffCommand_lamp2_bath" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_lamp2_bath" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="SimpleLamp_lamp8_bath" class="SimpleLamp">
+            <dhc:description>A SimpleLamp instance named SimpleLamp_lamp8_bath</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="12" name="physicalAddress"/>
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OffCommand_lamp8_bath" name="OffCommand_lamp8_bath" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OnCommand_lamp8_bath" name="OnCommand_lamp8_bath" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_lamp8_bath" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="webcam_lobby" class="SnapshotCamera">
+            <dhc:description>A SnapshotCamera instance named webcam_lobby</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="4000" name="physicalAddress"/>
+            <dhc:controlFunctionality class="CameraPictureQualityControlFunctionality">
+                <dhc:commands>
+                    <dhc:command id="IncreaseQualityCommand_snapshot_camera_1" name="IncreaseQualityCommand_snapshot_camera_1" class="IncreaseQualityCommand">
+                        <dhc:param value="increaseQuality" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="DecreaseQualityCommand_snapshot_camera1" name="DecreaseQualityCommand_snapshot_camera1" class="DecreaseQualityCommand">
+                        <dhc:param value="decreaseQuality" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="CameraPictureZoomPanControlFunctionality">
+                <dhc:commands>
+                    <dhc:command id="ZoomInCommand_snapshot_camera_1" name="ZoomInCommand_snapshot_camera_1" class="ZoomInCommand">
+                        <dhc:param value="zoomIn" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="ZoomOutCommand_snapshot_camera_1" name="ZoomOutCommand_snapshot_camera_1" class="ZoomOutCommand">
+                        <dhc:param value="zoomOut" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="PanDownCommand_snapshot_camera_1" name="PanDownCommand_snapshot_camera_1" class="PanDownCommand">
+                        <dhc:param value="panDown" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="PanUpCommand_snapshot_camera_1" name="PanUpCommand_snapshot_camera_1" class="PanUpCommand">
+                        <dhc:param value="panUp" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="PanRightCommand_snapshot_camera_1" name="PanRightCommand_snapshot_camera_1" class="PanRightCommand">
+                        <dhc:param value="panRight" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="PanLeftCommand_snapshot_camera_1" name="PanLeftCommand_snapshot_camera_1" class="PanLeftCommand">
+                        <dhc:param value="panLeft" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="PictureGrabFunctionality">
+                <dhc:commands>
+                    <dhc:command id="GrabPictureCommand_snapshot_camera_1" name="GrabPictureCommand_snapshot_camera_1" class="GrabPictureCommand">
+                        <dhc:param value="grabPicture" name="realCommandName"/>
+                        <dhc:param value="Image" name="returnType"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OnCommand_snapshot_camera_1" name="OnCommand_snapshot_camera_1" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OffCommand_snapshot_camera_1" name="OffCommand_snapshot_camera_1" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="CameraPictureImageControlFunctionality">
+                <dhc:commands>
+                    <dhc:command id="IncreaseContrastCommand_snapshot_camera_1" name="IncreaseContrastCommand_snapshot_camera_1" class="IncreaseContrastCommand">
+                        <dhc:param value="increaseContrast" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="DecreaseContrastCommand_snapshot_camera_1" name="DecreaseContrastCommand_snapshot_camera_1" class="DecreaseContrastCommand">
+                        <dhc:param value="decreaseContrast" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="IncreaseColorCommand_snapshot_camera_1" name="IncreaseColorCommand_snapshot_camera_1" class="IncreaseColorCommand">
+                        <dhc:param value="increaseColor" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="DecreaseColorCommand_snapshot_camera_1" name="DecreaseColorCommand_snapshot_camera_1" class="DecreaseColorCommand">
+                        <dhc:param value="decreaseColor" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="DecreaseLuminosityCommand_snapshot_camera_1" name="DecreaseLuminosityCommand_snapshot_camera_1" class="DecreaseLuminosityCommand">
+                        <dhc:param value="decreaseLuminosity" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="IncreaseLuminosityCommand_snapshot_camera_1" name="IncreaseLuminosityCommand_snapshot_camera_1" class="IncreaseLuminosityCommand">
+                        <dhc:param value="increaseLuminosity" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_snapshot_camera_1" class="StateChangeNotification">
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="Button_4_lobby" class="Button">
+            <dhc:description>A Button instance named Button_4_lobby</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:controls>ToggleRelay_lobby</dhc:controls>
+            <dhc:param value="2" name="physicalAddress"/>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification name="StateChangeNotification_button4_lobby" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="ButtonNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="PressedNotification_button4_lobby" class="PressedNotification">
+                        <dhc:generatesCommand>ToggleCommand_relay_lobby</dhc:generatesCommand>
+                        <dhc:param value="pressed" name="notificationName"/>
+                    </dhc:notification>
+                    <dhc:notification id="ReleasedNotification_button4_lobby" class="ReleasedNotification">
+                        <dhc:param value="released" name="notificationName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="Button_updown_sh1_living" class="ShutterButton">
+            <dhc:description>A ShutterButton instance named Button_updown_sh1_living</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:controls>ShutterActuator_sh1_living</dhc:controls>
+            <dhc:param value="31" name="physicalAddress"/>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_updown_sh1_living" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="UpDownNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="UpNotification_updown_sh1_living" class="UpNotification">
+                        <dhc:param value="pressedUp" name="notificationName"/>
+                    </dhc:notification>
+                    <dhc:notification id="DownNotification_updown_sh1_living" class="DownNotification">
+                        <dhc:param value="pressedDown" name="notificationName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="UpDownRestState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="rest" class="RestTripleStateValue"/>
+                    <dhc:statevalue name="up" class="UpTripleStateValue"/>
+                    <dhc:statevalue name="down" class="DownTripleStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>
+        <dhc:device domoticSystem="BTICINO" id="SimpleLamp_lamp5_lobby" class="SimpleLamp">
+            <dhc:description>A SimpleLamp instance named SimpleLamp_lamp5_lobby</dhc:description>
+            <dhc:isIn>storageroom</dhc:isIn>
+            <dhc:param value="24" name="physicalAddress"/>
+            <dhc:controlFunctionality class="QueryFunctionality">
+                <dhc:commands>
+                    <dhc:command id="GetCommand_lamp5_lobby" name="GetCommand_lamp5_lobby" class="GetCommand">
+                        <dhc:param value="getState" name="realCommandName"/>
+                        <dhc:param value="State" name="returnType"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:controlFunctionality class="OnOffFunctionality">
+                <dhc:commands>
+                    <dhc:command id="OnCommand_lamp5_lobby" name="OnCommand_lamp5_lobby" class="OnCommand">
+                        <dhc:param value="on" name="realCommandName"/>
+                    </dhc:command>
+                    <dhc:command id="OffCommand_lamp5_lobby" name="OffCommand_lamp5_lobby" class="OffCommand">
+                        <dhc:param value="off" name="realCommandName"/>
+                    </dhc:command>
+                </dhc:commands>
+            </dhc:controlFunctionality>
+            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
+                <dhc:notifications>
+                    <dhc:notification id="StateChangeNotification_lamp5_lobby" class="StateChangeNotification">
+                        <dhc:param value="1" name="nParams"/>
+                        <dhc:param value="stateChanged" name="notificationName"/>
+                        <dhc:param type="State" value="newState" name="notificationParamName"/>
+                    </dhc:notification>
+                </dhc:notifications>
+            </dhc:notificationFunctionality>
+            <dhc:state class="OnOffState">
+                <dhc:statevalues>
+                    <dhc:statevalue name="on" class="OnStateValue"/>
+                    <dhc:statevalue name="off" class="OffStateValue"/>
+                </dhc:statevalues>
+            </dhc:state>
+        </dhc:device>		
+	</dhc:controllables>
+</dhc:dhc>
