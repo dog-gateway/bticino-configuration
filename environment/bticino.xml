@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dhc:dhc xmlns:dhc="http://elite.polito.it/dogHomeConfiguration"
+<dhc:dogHomeConfiguration xmlns:dhc="http://elite.polito.it/dogHomeConfiguration"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://elite.polito.it/dogHomeConfiguration home_configuration.xsd ">
 	<dhc:buildingEnvironment>
@@ -28,15 +28,6 @@
                     <dhc:notification id="OnNotification_b3_lobby" class="OnNotification">
                         <dhc:generatesCommand>OnCommand_lamp2_bath</dhc:generatesCommand>
                         <dhc:param value="on" name="notificationName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_b3_lobby" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
                     </dhc:notification>
                 </dhc:notifications>
             </dhc:notificationFunctionality>
@@ -69,15 +60,16 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_lamp4_lobby" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="OnNotification_lamp4_lobby" class="OnNotification">
+						<dhc:param value="on" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="OffNotification_lamp4_lobby" class="OffNotification">
+						<dhc:param value="off" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
             <dhc:state class="OnOffState">
                 <dhc:statevalues>
                     <dhc:statevalue name="off" class="OffStateValue"/>
@@ -90,15 +82,6 @@
             <dhc:isIn>storageroom</dhc:isIn>
             <dhc:controls>SimpleLamp_lamp8_bath</dhc:controls>
             <dhc:param value="12" name="physicalAddress"/>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_b12_bath" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="OnOffNotificationFunctionality">
                 <dhc:notifications>
                     <dhc:notification id="OnNotification_b12_bath" class="OnNotification">
@@ -135,15 +118,29 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_sh1_living" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
+            <dhc:notificationFunctionality class="VerticalMovementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="MovingUpNotification_sh1_living" class="MovingUpNotification">
+						<dhc:param value="movingUp" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="MovingDownNotification_sh1_living" class="MovingDownNotification">
+						<dhc:param value="movingDown" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="VerticalNoMovementNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="RestUpNotification_sh1_living" class="RestUpNotification">
+						<dhc:param value="restingUp" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="RestNotification_sh1_living" class="RestNotification">
+						<dhc:param value="resting" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="RestDownNotification_sh1_living" class="RestDownNotification">
+						<dhc:param value="restingDown" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
             <dhc:state class="ShutterState">
                 <dhc:statevalues>
                     <dhc:statevalue name="rest" class="RestTripleStateValue"/>
@@ -168,15 +165,16 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_lamp2_bath" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="OnNotification_lamp2_bath" class="OnNotification">
+						<dhc:param value="on" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="OffNotification_lamp2_bath" class="OffNotification">
+						<dhc:param value="off" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
             <dhc:state class="OnOffState">
                 <dhc:statevalues>
                     <dhc:statevalue name="off" class="OffStateValue"/>
@@ -198,15 +196,16 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_lamp8_bath" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="OnNotification_lamp8_bath" class="OnNotification">
+						<dhc:param value="on" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="OffNotification_lamp8_bath" class="OffNotification">
+						<dhc:param value="off" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
             <dhc:state class="OnOffState">
                 <dhc:statevalues>
                     <dhc:statevalue name="on" class="OnStateValue"/>
@@ -290,14 +289,16 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_snapshot_camera_1" class="StateChangeNotification">
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="OnNotification_snapshot_camera_1" class="OnNotification">
+						<dhc:param value="on" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="OffNotification_snapshot_camera_1" class="OffNotification">
+						<dhc:param value="off" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
             <dhc:state class="OnOffState">
                 <dhc:statevalues>
                     <dhc:statevalue name="off" class="OffStateValue"/>
@@ -310,15 +311,6 @@
             <dhc:isIn>storageroom</dhc:isIn>
             <dhc:controls>ToggleRelay_lobby</dhc:controls>
             <dhc:param value="2" name="physicalAddress"/>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification name="StateChangeNotification_button4_lobby" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="ButtonNotificationFunctionality">
                 <dhc:notifications>
                     <dhc:notification id="PressedNotification_button4_lobby" class="PressedNotification">
@@ -342,15 +334,6 @@
             <dhc:isIn>storageroom</dhc:isIn>
             <dhc:controls>ShutterActuator_sh1_living</dhc:controls>
             <dhc:param value="31" name="physicalAddress"/>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_updown_sh1_living" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
             <dhc:notificationFunctionality class="UpDownNotificationFunctionality">
                 <dhc:notifications>
                     <dhc:notification id="UpNotification_updown_sh1_living" class="UpNotification">
@@ -391,15 +374,16 @@
                     </dhc:command>
                 </dhc:commands>
             </dhc:controlFunctionality>
-            <dhc:notificationFunctionality class="StateChangeNotificationFunctionality">
-                <dhc:notifications>
-                    <dhc:notification id="StateChangeNotification_lamp5_lobby" class="StateChangeNotification">
-                        <dhc:param value="1" name="nParams"/>
-                        <dhc:param value="stateChanged" name="notificationName"/>
-                        <dhc:param type="State" value="newState" name="notificationParamName"/>
-                    </dhc:notification>
-                </dhc:notifications>
-            </dhc:notificationFunctionality>
+			<dhc:notificationFunctionality class="OnOffNotificationFunctionality">
+				<dhc:notifications>
+					<dhc:notification id="OnNotification_lamp5_lobby" class="OnNotification">
+						<dhc:param value="on" name="notificationName" />
+					</dhc:notification>
+					<dhc:notification id="OffNotification_lamp5_lobby" class="OffNotification">
+						<dhc:param value="off" name="notificationName" />
+					</dhc:notification>
+				</dhc:notifications>
+			</dhc:notificationFunctionality>
             <dhc:state class="OnOffState">
                 <dhc:statevalues>
                     <dhc:statevalue name="on" class="OnStateValue"/>
@@ -408,4 +392,4 @@
             </dhc:state>
         </dhc:device>		
 	</dhc:controllables>
-</dhc:dhc>
+</dhc:dogHomeConfiguration>
